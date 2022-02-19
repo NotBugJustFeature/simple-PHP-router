@@ -4,9 +4,9 @@
     $apiDir = "api";
 
     $routes = [
-        ["/",           "{$publicDir}/index.php"],  
-        ["/about",         "{$publicDir}/about.php"],
-        ["/?/:parameter",  "{$publicDir}/user.php",     ["u","user"]],
+        ["/",               "{$publicDir}/index.php"],  
+        ["/about",          "{$publicDir}/about.php"],
+        ["/?/:parameter",   "{$publicDir}/user.php",     ["u","user"]],
     ];
 
     $router = new Router($routes, $_SERVER['REQUEST_URI']);
