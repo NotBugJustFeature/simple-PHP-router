@@ -17,16 +17,12 @@
             
             $this->routes = $res;
         }
-        function getParams(){
-            return $this->params;
-        }
         function getDest(){
             return $this->dest;
         }
         function execRouting(){
             $match = -1;
             $rexp = explode("/",$this->route);
-            
 
             unset($rexp[0]);
             foreach($this->routes as $index => $rs){
@@ -56,11 +52,6 @@
 
             $this->dest = ($match > -1)? $this->routes[$match][1]:"public/404.php";
             return $this->params;
-            /*if($match > -1){
-                require $this->routes[$match][1];
-            }else{
-                require "public/404.php";
-            }*/
         }
     }
 ?>
