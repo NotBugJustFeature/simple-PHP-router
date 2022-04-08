@@ -5,16 +5,18 @@
         private $params;
         private $dest;
         private $mode;
+        private $error_page;
 
         const BOTH = 3;
         const ASSOC = 2;
         const ARRAY = 1;
 
-        function __construct($routes, $route, $mode = self::ARRAY){
-            $this->route    = $route;
-            $this->mode     = $mode;
-            $this->routes   = $routes;
-            $res            = [];
+        function __construct($routes, $route, $error_page, $mode = self::ARRAY){
+            $this->route        = $route;
+            $this->mode         = $mode;
+            $this->routes       = $routes;
+            $this->error_page   = $error_page;
+            $res                = [];
         }
         function getDest(){
             return $this->dest;
@@ -54,7 +56,7 @@
                 }
             }
 
-            $this->dest = ($match > -1)? $this->routes[$match][1]:"public/404.php";
+            $this->dest = ($match > -1)? $this->routes[$match][1]:$this->error_page;
             return $this->params;
         }
     }
