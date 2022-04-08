@@ -9,7 +9,7 @@
         ["/user/:parameter",    "{$publicDir}/user.php"],
     ];
 
-    $router = new Router($routes, $_SERVER['REQUEST_URI'], Router::BOTH);
+    $router = new Router($routes, $_SERVER['REQUEST_URI'], "{$publicDir}/404.php", Router::BOTH);
     $_PARAMS = $router->execRouting();
     require $router->getDest();
     //echo $router->getDest()."<br>";
